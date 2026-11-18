@@ -44,6 +44,10 @@ export function centreClassLabel(day, centre, cls) {
   return `${clean(day).slice(0, 3)} | ${clean(centre)} | C${clean(cls)}`;
 }
 
+export function centreLabel(day, centre) {
+  return `${clean(day).slice(0, 3)} | ${clean(centre)}`;
+}
+
 export function groupLabel(day, centre, cls, subject) {
   return `${centreClassLabel(day, centre, cls)} | ${clean(subject).toUpperCase()}`;
 }
@@ -89,6 +93,23 @@ export function formGroups(roster) {
   return [...g.values()]
     .map((x) => ({ ...x, options: [NONE_OPTION, ...x.options.sort((a, b) => a.localeCompare(b))] }))
     .sort((a, b) => order(a) - order(b) || a.label.localeCompare(b.label));
+}
+
+// Late form (+1 officer): one checkbox field per centre-day, all students, sorted by name.
+export function lateGroups(roster) {
+  const g = new Map();
+  for (const r of roster) {
+    const label = centreLabel(r.Day, r.Centre);
+    if (!g.has(label)) g.set(label, { label, day: clean(r.Day), options: [] });
+    g.get(label).options.push(studentKey(r));
+  }
+  return [...g.values()]
+    .map((x) => ({ ...x, options: [NONE_OPTION, ...x.options.sort((a, b) => a.localeCompare(b))] }))
+    .sort((a, b) => DAYS.indexOf(a.day) - DAYS.indexOf(b.day) || a.label.localeCompare(b.label));
+}
+
+export function centreOptions(schedule) {
+  return [...new Set(schedule.slice().sort((a, b) => DAYS.indexOf(a.Day) - DAYS.indexOf(b.Day)).map((s) => centreLabel(s.Day, s.Centre)))];
 }
 
 export function centreClassOptions(schedule) {

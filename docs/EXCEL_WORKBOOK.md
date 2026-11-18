@@ -11,7 +11,7 @@ If Plumber requires its own file, recreate the same tables/headers in it and pas
 | `Subs` | Plumber only | 1 row per FormSG submission. Format `SubmittedAt`, `Date` columns as Text |
 | `Schedule` | Ops | Day, CentreClass, Subject (paste from toolkit) + formula `Submitted` |
 | `CallLog` | HR | Date, StudentKey (copy from HR View last col), Outcome, CalledBy, Notes |
-| `Summary` | Formulas | Metric/Value rows read by Plumber pipes 2 & 3 |
+| `Summary` | Formulas | Metric/Value rows; Pipe 3 reads `MissingCount`. PendingCount/PendingList = on-sheet view of groups not yet reported |
 | HR View sheet | Formula | Spill at A2: today's flagged students, MISSING first, read-only |
 
 ## Status logic
@@ -19,10 +19,11 @@ If Plumber requires its own file, recreate the same tables/headers in it and pas
 |---|---|---|
 | yes | no | MISSING → HR calls |
 | yes | yes | ARRIVED LATE |
-| no | yes | LATE (not flagged) — teacher didn't flag absent at 2:50 (feedback item) |
+| no | yes | LATE (not flagged) — +1 saw them late but teacher didn't flag absent at 2:50 (feedback item) |
 
 ## Design choices
-- Matching is scoped by Date + Type + CentreClass + Subject, and by `,Key,` delimiters → no cross-centre or substring false matches.
+- Absent matching: Date + Type + CentreClass + Subject + `,Key,` delimiters → no cross-centre/substring false matches.
+- Late matching (+1 form, centre-wide): Date + Type + `,Key,` only. Late rows have `CentreClass` = `Ddd | Centre`, `Subject` blank. Requires globally unique keys (toolkit checks).
 - `SUMPRODUCT`/`FIND` used instead of `COUNTIFS` (COUNTIFS fails on cells > 255 chars).
 - Rows only compute when `Day` = today → fast.
 - No daily reset needed: everything filters on TODAY().

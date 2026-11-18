@@ -23,7 +23,7 @@ Paste each into the FIRST data row of the column; Excel tables auto-fill the who
 ## Roster → LateToday
 
 ```
-=IF([@Day]<>TEXT(TODAY(),"dddd"),0,SUMPRODUCT((TEXT(Subs[Date],"yyyy-mm-dd")=TEXT(TODAY(),"yyyy-mm-dd"))*(Subs[Type]="Late")*(Subs[CentreClass]=[@CentreClass])*(Subs[Subject]=[@Subject])*ISNUMBER(FIND(","&[@Key]&",",","&SUBSTITUTE(Subs[Students],", ",",")&","))))
+=IF([@Day]<>TEXT(TODAY(),"dddd"),0,SUMPRODUCT((TEXT(Subs[Date],"yyyy-mm-dd")=TEXT(TODAY(),"yyyy-mm-dd"))*(Subs[Type]="Late")*ISNUMBER(FIND(","&[@Key]&",",","&SUBSTITUTE(Subs[Students],", ",",")&","))))
 ```
 
 ## Roster → Status
@@ -41,7 +41,7 @@ Paste each into the FIRST data row of the column; Excel tables auto-fill the who
 ## Roster → LateReason
 
 ```
-=IF([@LateToday]=0,"",LOOKUP(2,1/((TEXT(Subs[Date],"yyyy-mm-dd")=TEXT(TODAY(),"yyyy-mm-dd"))*(Subs[Type]="Late")*(Subs[CentreClass]=[@CentreClass])*(Subs[Subject]=[@Subject])*ISNUMBER(FIND(","&[@Key]&",",","&SUBSTITUTE(Subs[Students],", ",",")&","))),Subs[Reason]))
+=IF([@LateToday]=0,"",LOOKUP(2,1/((TEXT(Subs[Date],"yyyy-mm-dd")=TEXT(TODAY(),"yyyy-mm-dd"))*(Subs[Type]="Late")*ISNUMBER(FIND(","&[@Key]&",",","&SUBSTITUTE(Subs[Students],", ",",")&","))),Subs[Reason]))
 ```
 
 ## Roster → HROutcome

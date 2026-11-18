@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { parseCSV, studentKey, validate, formGroups, centreClassOptions, scheduleRows, NONE_OPTION } from '../tools/roster-toolkit/lib.js';
+import { parseCSV, studentKey, validate, formGroups, centreClassOptions, scheduleRows, NONE_OPTION, lateGroups, centreOptions } from '../tools/roster-toolkit/lib.js';
 
 const read = (p) => parseCSV(readFileSync(new URL(p, import.meta.url), 'utf8'));
 const schedule = read('../data/schedule.csv');
@@ -50,4 +50,12 @@ test('form groups start with NONE option', () => {
 test('schedule expands to 3 subjects per centre-class', () => {
   assert.equal(scheduleRows(schedule).length, schedule.length * 3);
   assert.equal(centreClassOptions(schedule)[0], 'Mon | Yew Tee Primary School | C1');
+});
+
+test('late groups: one per centre-day, NONE first, sorted', () => {
+  const g = lateGroups(roster);
+  assert.deepEqual(g.map((x) => x.label), ['Mon | Geylang Methodist School', 'Mon | Yew Tee Primary School', 'Tue | Innova Primary School']);
+  assert.equal(g[1].options.length, 3);
+  assert.equal(g[1].options[0], NONE_OPTION);
+  assert.equal(centreOptions(schedule).length, 15);
 });

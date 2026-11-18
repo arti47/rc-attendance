@@ -10,17 +10,19 @@ Regional-centre attendance for MOE. Teachers flag absent/late students; HR gets 
 
 ## Architecture
 ```
-Teacher -> FormSG (1 form, Storage mode) -> Plumber Pipe 1 -> Excel `Subs` (1 row/submission)
+Teacher 2:50 -> FormSG "RC Absent" -> Plumber Pipe 1 -> Excel `Subs` (Type=Absent, 1 row/submission)
++1 officer 3:00 -> FormSG "RC Late" (per centre + reason) -> Pipe 2 -> `Subs` (Type=Late)
 Excel formulas: Roster x Subs -> Status/FlaggedAt/LateReason -> HR View + Summary
-Plumber Pipe 2 (2:55 chaser) / Pipe 3 (3:05 HR digest) read `Summary`
+Pipe 3 (3:05) emails HR the MissingCount + link. No 2:55 chaser (D9).
 Roster Toolkit (static, Netlify, in-browser) -> validates roster CSV, generates FormSG option lists
 ```
 Read in order: `docs/DECISIONS.md` → `docs/WORKFLOW_AUDIT.md` → `docs/FORMSG_SPEC.md` → `docs/PLUMBER_PIPES.md` (+ `docs/PLUMBER_SETUP_GUIDE.md` click-by-click) → `docs/EXCEL_WORKBOOK.md` → `docs/DATA_PROTECTION.md` → `docs/SETUP_CHECKLIST.md`.
 
 ## Contracts (change together or things silently break)
 - Student key: `Name (SCHOOLCODE) <Subject><Class>` — `studentKey()` in `tools/roster-toolkit/lib.js` == Roster `Key` formula in `scripts/build_workbook.py`.
-- Centre/Class label: `Ddd | Centre | C<n>` — `centreClassLabel()` == Roster `CentreClass` formula == FormSG dropdown.
-- FormSG values `E/M/S`, `Absent/Late`, `NONE - all present` == strings used in formulas.
+- Centre/Class label: `Ddd | Centre | C<n>` — `centreClassLabel()` == Roster `CentreClass` formula == Absent form dropdown.
+- Centre label (Late form): `Ddd | Centre` — `centreLabel()`. Late matching is by date + key only, so keys must be globally unique (toolkit enforces).
+- FormSG values `E/M/S`, `NONE - all present`; Plumber constant `Type` = `Absent` / `Late` == strings used in formulas.
 - `Subs` columns == Plumber Pipe 1 mapping.
 
 ## Layout

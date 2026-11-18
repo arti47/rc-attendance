@@ -22,7 +22,7 @@ Design decisions:
 Open:
 - ~~O1~~ → D6.
 - ~~O2~~ → D7.
-- O3 Move absent cut-off to 2:45?
+- ~~O3~~ → D9 (keep 2:50).
 - O4 Friday schedule?
 - O5 Verify Plumber features marked [verify] in PLUMBER_PIPES.md.
 
@@ -34,3 +34,8 @@ Open:
 
 2026-11-18 (Q13):
 - D8 2:55pm not-submitted email → centre head (chases teachers). Backup in CC recommended. Absent cut-off change (O3) still open.
+
+2026-11-18 (Q14):
+- D9 No 2:55 chaser email (supersedes D8). Each centre has a "+1" (GEB officer or centre head) who walks around at 3pm.
+- D10 Two submissions: 2:50 Absent by subject teachers (form "RC Absent"); 3:00 Late by the +1 (form "RC Late", one per centre, all students of that centre, free-text reason).
+- Late matching in Excel = date + key (centre-wide), not scoped by class/subject.

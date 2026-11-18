@@ -43,15 +43,21 @@
 
   <div class="card" id="outputs" hidden>
     <h2>3. Paste into FormSG / Excel</h2>
-    <label>"Centre / Class" dropdown options (FormSG → Dropdown → bulk paste)</label>
+    <label>ABSENT form: "Centre / Class" dropdown options (FormSG → Dropdown → bulk paste)</label>
     <textarea id="ccOpts" readonly></textarea>
     <button data-copy="ccOpts">Copy</button>
     <label>Excel "Schedule" table rows (Day, CentreClass, Subject – tab separated)</label>
     <textarea id="schedRows" readonly></textarea>
     <button data-copy="schedRows">Copy</button>
-    <h2 style="margin-top:16px">Checkbox fields (one per Centre/Class/Subject)</h2>
+    <h2 style="margin-top:16px">ABSENT form (teachers, 2:50pm) – checkbox fields, one per Centre/Class/Subject</h2>
     <p class="note">Field title = group label. Logic: show when "Centre / Class" = middle part AND "Subject" = last letter. Options below.</p>
     <div id="groups"></div>
+    <h2 style="margin-top:16px">LATE form (+1 officer, 3:00pm)</h2>
+    <label>"Centre" dropdown options</label>
+    <textarea id="centreOpts" readonly></textarea>
+    <button data-copy="centreOpts">Copy</button>
+    <p class="note">One checkbox field per centre-day. Logic: show when "Centre" = field title.</p>
+    <div id="lateGroups"></div>
   </div>
 </main>
 <script type="module" src="app.js"></script>

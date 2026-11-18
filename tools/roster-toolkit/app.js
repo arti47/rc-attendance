@@ -1,4 +1,4 @@
-import { parseCSV, validate, formGroups, centreClassOptions, scheduleRows } from './lib.js';
+import { parseCSV, validate, formGroups, lateGroups, centreOptions, centreClassOptions, scheduleRows } from './lib.js';
 
 const $ = (id) => document.getElementById(id);
 const readFile = (input) => new Promise((res, rej) => {
@@ -37,6 +37,12 @@ $('run').addEventListener('click', async () => {
   if (errors.length) return;
   $('ccOpts').value = centreClassOptions(schedule).join('\n');
   $('schedRows').value = scheduleRows(schedule).map((r) => [r.Day, r.CentreClass, r.Subject].join('\t')).join('\n');
+  $('centreOpts').value = centreOptions(schedule).join('\n');
+  $('lateGroups').innerHTML = lateGroups(roster).map((g, i) => `
+    <details><summary>${esc(g.label)} (${g.options.length - 1} students)</summary>
+      <textarea id="l${i}" readonly>${esc(g.options.join('\n'))}</textarea>
+      <button data-copy="l${i}">Copy options</button>
+    </details>`).join('');
   $('groups').innerHTML = formGroups(roster).map((g, i) => `
     <details><summary>${esc(g.label)} (${g.options.length - 1} students)</summary>
       <textarea id="g${i}" readonly>${esc(g.options.join('\n'))}</textarea>

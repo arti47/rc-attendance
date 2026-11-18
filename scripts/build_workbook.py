@@ -23,8 +23,13 @@ IN_LIST = 'ISNUMBER(FIND(","&[@Key]&",",","&SUBSTITUTE(Subs[Students],", ",",")&
 
 
 def scoped(kind):
-    return (f'(TEXT(Subs[Date],"yyyy-mm-dd")={T})*(Subs[Type]="{kind}")'
-            f'*(Subs[CentreClass]=[@CentreClass])*(Subs[Subject]=[@Subject])*{IN_LIST}')
+    # Absent: teacher form, scoped to the student's Centre/Class + Subject.
+    # Late: +1 officer form, centre-wide (Subs.CentreClass = "Ddd | Centre", Subject blank);
+    #       key is globally unique (toolkit enforces), so match on date + key only.
+    base = f'(TEXT(Subs[Date],"yyyy-mm-dd")={T})*(Subs[Type]="{kind}")'
+    if kind == "Absent":
+        base += '*(Subs[CentreClass]=[@CentreClass])*(Subs[Subject]=[@Subject])'
+    return f'{base}*{IN_LIST}'
 
 
 # (sheet/table, column) -> formula. Order matters (dependencies left to right).
