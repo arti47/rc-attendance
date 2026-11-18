@@ -22,6 +22,7 @@
 - [ ] Optional: Netlify password protection / restrict to staff
 
 ## Recurring
-- Term start / roster change: update Roster → toolkit → update FormSG options (+ new checkbox field & logic if a new centre-class)
+- **Yearly (start of year, admin/ops):** rebuild Roster → toolkit → replace options in both forms (+ new checkbox fields & logic if centres/classes change) → re-test Pipe 1/2 mapping → archive last year's `Subs`/`CallLog`
+- Ad hoc (withdrawal, TDC change): edit Roster row → toolkit → update the affected options in both forms
 - Monthly: archive `Subs`/`CallLog`
 - Weekly: review "LATE (not flagged)" + late reasons → TDC feedback

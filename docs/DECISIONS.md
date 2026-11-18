@@ -45,3 +45,6 @@ Open:
 
 2026-11-18 (Q16):
 - D12 HR call outcomes (CallLog dropdown): Located - at home school; Located - at home; Absent - valid reason (MC/leave); No answer - retry; Not located - escalated. Summary.UnresolvedCount tracks the rest.
+
+2026-11-18 (Q17):
+- D13 Roster owner = admin/ops; full rebuild once a year (start of year). Ad-hoc fixes (withdrawals, TDC change) by admin/ops: edit Roster → toolkit → update options in both forms.
