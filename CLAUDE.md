@@ -15,7 +15,7 @@ Excel formulas: Roster x Subs -> Status/FlaggedAt/LateReason -> HR View + Summar
 Plumber Pipe 2 (2:55 chaser) / Pipe 3 (3:05 HR digest) read `Summary`
 Roster Toolkit (static, Netlify, in-browser) -> validates roster CSV, generates FormSG option lists
 ```
-Read in order: `docs/DECISIONS.md` → `docs/WORKFLOW_AUDIT.md` → `docs/FORMSG_SPEC.md` → `docs/PLUMBER_PIPES.md` → `docs/EXCEL_WORKBOOK.md` → `docs/DATA_PROTECTION.md` → `docs/SETUP_CHECKLIST.md`.
+Read in order: `docs/DECISIONS.md` → `docs/WORKFLOW_AUDIT.md` → `docs/FORMSG_SPEC.md` → `docs/PLUMBER_PIPES.md` (+ `docs/PLUMBER_SETUP_GUIDE.md` click-by-click) → `docs/EXCEL_WORKBOOK.md` → `docs/DATA_PROTECTION.md` → `docs/SETUP_CHECKLIST.md`.
 
 ## Contracts (change together or things silently break)
 - Student key: `Name (SCHOOLCODE) <Subject><Class>` — `studentKey()` in `tools/roster-toolkit/lib.js` == Roster `Key` formula in `scripts/build_workbook.py`.

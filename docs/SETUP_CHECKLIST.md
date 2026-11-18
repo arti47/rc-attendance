@@ -10,7 +10,7 @@
 2. [ ] Create workbook tables from template; paste formulas (`docs/excel_formulas.md`); run verification in EXCEL_WORKBOOK.md
 3. [ ] Export Roster as CSV on work device → open toolkit → validate → copy option lists. Delete CSV after
 4. [ ] Build FormSG per FORMSG_SPEC.md; add collaborators; store secret key
-5. [ ] Plumber Pipe 1; test submission → row in `Subs` → HR View
+5. [ ] Plumber Pipe 1 (follow `docs/PLUMBER_SETUP_GUIDE.md`); test submission → row in `Subs` → HR View
 6. [ ] Plumber Pipes 2 & 3; test emails
 7. [ ] Paste Schedule rows into `Schedule`
 8. [ ] Dry run 1 day with 2–3 teachers; time the teacher flow (< 40 s target)
