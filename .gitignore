@@ -1,0 +1,17 @@
+# ---- DATA PROTECTION: real student/TDC data must NEVER be committed ----
+*.xlsx
+*.xls
+*.xlsm
+*.csv
+!data/schedule.csv
+!templates/*.csv
+!tests/fixtures/*.csv
+!templates/RC_Attendance_Template.xlsx
+private/
+exports/
+*.env
+.env*
+node_modules/
+__pycache__/
+.netlify/
+.DS_Store

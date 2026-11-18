@@ -1,0 +1,13 @@
+# Static, client-side only. No functions, no forms, no analytics: student data must never reach Netlify.
+[build]
+  publish = "tools/roster-toolkit"
+  command = "cp data/schedule.csv tools/roster-toolkit/schedule.csv"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'"
+    Referrer-Policy = "no-referrer"
+    X-Content-Type-Options = "nosniff"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Cache-Control = "no-store"

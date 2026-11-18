@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RC Roster Toolkit</title>
+<style>
+  :root { --bg:#f6f7f9; --fg:#1b1f24; --card:#fff; --line:#d9dde3; --accent:#1f4e8c; --err:#b42318; --warn:#9a6700; --ok:#1a7f37; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14171b; --fg:#e6e9ed; --card:#1d2126; --line:#333a42; --accent:#7fb0ff; --err:#ff7b72; --warn:#e3b341; --ok:#56d364; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.5 system-ui, sans-serif; }
+  main { max-width:960px; margin:0 auto; padding:16px; }
+  h1 { font-size:22px; margin:8px 0 4px; } h2 { font-size:17px; margin:0 0 8px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:16px; margin:12px 0; }
+  .note { font-size:13px; opacity:.8; }
+  label { display:block; margin:8px 0 4px; font-weight:600; }
+  textarea { width:100%; min-height:120px; font:12px/1.4 ui-monospace, monospace; background:var(--bg); color:var(--fg); border:1px solid var(--line); border-radius:6px; padding:8px; }
+  button { background:var(--accent); color:#fff; border:0; border-radius:6px; padding:8px 14px; font-weight:600; cursor:pointer; margin:4px 4px 0 0; }
+  .err { color:var(--err); } .warn { color:var(--warn); } .ok { color:var(--ok); }
+  details { border-top:1px solid var(--line); padding:8px 0; } summary { cursor:pointer; font-weight:600; }
+  ul { padding-left:20px; margin:4px 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>RC Roster Toolkit</h1>
+  <p class="note"><b>Runs 100% in your browser.</b> Files are read locally; nothing is uploaded, stored or sent (network blocked by Content-Security-Policy). Close the tab to clear.</p>
+
+  <div class="card">
+    <h2>1. Load files (CSV exported from the gov-cloud workbook)</h2>
+    <label for="roster">Roster CSV (Roster sheet → Save as CSV)</label>
+    <input type="file" id="roster" accept=".csv,text/csv">
+    <label for="schedule">Schedule CSV (optional – defaults to built-in schedule)</label>
+    <input type="file" id="schedule" accept=".csv,text/csv">
+    <div><button id="run">Validate &amp; generate</button></div>
+  </div>
+
+  <div class="card" id="results" hidden>
+    <h2>2. Validation</h2>
+    <div id="summary"></div>
+    <ul id="issues"></ul>
+  </div>
+
+  <div class="card" id="outputs" hidden>
+    <h2>3. Paste into FormSG / Excel</h2>
+    <label>"Centre / Class" dropdown options (FormSG → Dropdown → bulk paste)</label>
+    <textarea id="ccOpts" readonly></textarea>
+    <button data-copy="ccOpts">Copy</button>
+    <label>Excel "Schedule" table rows (Day, CentreClass, Subject – tab separated)</label>
+    <textarea id="schedRows" readonly></textarea>
+    <button data-copy="schedRows">Copy</button>
+    <h2 style="margin-top:16px">Checkbox fields (one per Centre/Class/Subject)</h2>
+    <p class="note">Field title = group label. Logic: show when "Centre / Class" = middle part AND "Subject" = last letter. Options below.</p>
+    <div id="groups"></div>
+  </div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
