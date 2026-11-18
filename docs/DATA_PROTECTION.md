@@ -3,7 +3,7 @@
 | # | Rule / risk | Control |
 |---|-------------|---------|
 | 1 | Real student/TDC data never leaves gov cloud | Only FormSG, Plumber, M365 Excel hold it. Repo + Netlify = code, templates, dummy data. `.gitignore` blocks xlsx/csv |
-| 2 | **Checkbox options = student names visible to anyone with the form link** | DECISION NEEDED: (a) enable FormSG Singpass/SGID authentication so form content is hidden until login, or (b) accept risk with link shared only in closed staff group, rotate link (duplicate form) if leaked. Recommend (a) if login adds ≤10 s |
+| 2 | **Checkbox options = student names visible to anyone with the form link** | DECIDED (D6): open link + verified MOE email (OTP). Singpass rejected (any Singpass holder can log in; collects NRIC); whitelist rejected (blocks relief teachers). Residual risk: names visible to link holders → link only in closed staff groups; rotate (duplicate form) if leaked |
 | 3 | Minimum data | Name + school code + subject/class only. No NRIC, address, parent contact, medical |
 | 4 | Email contains PII | Default: chaser has no student data; HR digest = count + link. List in email only with approval |
 | 5 | Access | Workbook shared to named HR/ops only (no "anyone with link"). FormSG/Plumber ≥2 admins |

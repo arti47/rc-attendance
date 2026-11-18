@@ -2,7 +2,6 @@
 
 ## Approvals / people
 - [ ] DPO / ICT sign-off on data flow + classification (DATA_PROTECTION #10)
-- [ ] Decide form authentication (DATA_PROTECTION #2)
 - [ ] Decide digest email content (DATA_PROTECTION #4)
 - [ ] Name owners: Ops (roster), HR (CallLog), backup admin
 - [ ] Confirm retention period

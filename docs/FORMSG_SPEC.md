@@ -6,6 +6,7 @@
 ## Fields (in order)
 | # | Field | Type | Required | Options / notes |
 |---|-------|------|----------|-----------------|
+| 0 | Staff email | Email, **Verify ON** (OTP) | Yes | Allowed domains: `moe.edu.sg`, `schools.gov.sg` (add others if relief staff use them). Lets relief teachers submit; blocks non-staff |
 | 1 | Centre / Class | Dropdown | Yes | Paste from toolkit "Centre/Class options", e.g. `Mon \| Geylang Methodist School \| C2` |
 | 2 | Subject | Radio | Yes | `E`, `M`, `S` (exact values — Excel matches on them) |
 | 3 | Report type | Radio | Yes | `Absent`, `Late` (exact values) |
@@ -20,10 +21,11 @@
 Count: centre-classes × 3 checkbox fields (20 × 3 = 60 with current schedule). One-time setup; roster changes only edit options (copy from toolkit).
 
 ## Teacher flow (target < 40 s)
-Open pinned link → Centre/Class → Subject → Absent → tick (or NONE) → Submit.
+Open pinned link → email + OTP (~15 s; browser autofill helps) → Centre/Class → Subject → Absent → tick (or NONE) → Submit.
 At 3:00: same link → … → Late → tick → reason → Submit.
 
 ## Rules
+- Link is open (no Singpass): student names in options are visible to anyone with the link → share only in closed staff groups; if leaked, duplicate form for a new link and update Plumber trigger.
 - Never add NRIC, address, parent contact or medical info.
 - Student option text must equal Roster `Key` exactly. Always regenerate from the toolkit.
 - Must submit even if all present (`NONE`) — that's how the chaser knows.

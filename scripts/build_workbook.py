@@ -49,7 +49,7 @@ FORMULAS = [
 TABLES = {
     "Roster": ["StudentName", "HomeSchool", "SchoolCode", "Day", "Centre", "Class", "Subject", "TDCName", "TDCPhone",
                "Key", "CentreClass", "AbsentToday", "LateToday", "Status", "FlaggedAt", "LateReason", "HROutcome"],
-    "Subs": ["SubmittedAt", "Date", "Type", "CentreClass", "Subject", "Students", "Reason", "SubmissionID"],
+    "Subs": ["SubmittedAt", "Date", "Type", "CentreClass", "Subject", "Students", "Reason", "SubmissionID", "SubmittedBy"],
     "Schedule": ["Day", "CentreClass", "Subject", "Submitted"],
     "CallLog": ["Date", "StudentKey", "Outcome", "CalledBy", "Notes"],
     "Summary": ["Metric", "Value"],

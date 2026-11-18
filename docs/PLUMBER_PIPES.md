@@ -8,7 +8,7 @@ Items marked **[verify]** depend on Plumber features — confirm in the Plumber 
 |------|--------------|--------|
 | Trigger | FormSG → New form response | Paste Plumber webhook URL into FormSG Settings → Webhooks |
 | 1 | Formatter → Date/time → Format **[verify]** | Input: submission time. Format `yyyy-MM-dd`, timezone Asia/Singapore → `Date` |
-| 2 | M365 Excel → Create table row | Table `Subs`. Map: `SubmittedAt` = submission time (HH:mm SGT); `Date` = step 1; `Type` = Report type; `CentreClass` = Centre / Class; `Subject` = Subject; `Students` = **all checkbox fields concatenated** (only one non-empty); `Reason` = Reason field; `SubmissionID` = response ID |
+| 2 | M365 Excel → Create table row | Table `Subs`. Map: `SubmittedAt` = submission time (HH:mm SGT); `Date` = step 1; `Type` = Report type; `CentreClass` = Centre / Class; `Subject` = Subject; `Students` = **all checkbox fields concatenated** (only one non-empty); `Reason` = Reason field; `SubmissionID` = response ID; `SubmittedBy` = Staff email |
 
 No loops, no lookups: Excel formulas do the rest.
 If step 1 unavailable: write raw timestamp to `Date`; Excel uses `TEXT(Subs[Date],"yyyy-mm-dd")` — verify the timezone is SGT.
