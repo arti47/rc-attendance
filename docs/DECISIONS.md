@@ -31,3 +31,6 @@ Open:
 
 2026-11-18 (Q12):
 - D7 HR 3:05pm email = missing count + workbook link only. No student names/phones in any email.
+
+2026-11-18 (Q13):
+- D8 2:55pm not-submitted email → centre head (chases teachers). Backup in CC recommended. Absent cut-off change (O3) still open.

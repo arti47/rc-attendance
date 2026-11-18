@@ -26,7 +26,7 @@
 |------|-------|-------|
 | 2:45–2:50 | Absent submission (~45 s incl. email OTP) | Teacher (E/M/S each) |
 | ~2:50:30 | Row in `Subs`; HR View shows MISSING + school + TDC + phone | Plumber + Excel (auto) |
-| 2:55 | Email: list of centre/class/subject not yet submitted | Plumber scheduler → ops lead chases |
+| 2:55 | Email: list of centre/class/subject not yet submitted | Plumber scheduler → centre head chases |
 | 3:00 | Late submission + reason; status flips to ARRIVED LATE | Teacher |
 | 3:05 | HR digest email: missing count + link | Plumber scheduler |
 | 3:05–3:10 | HR calls TDCs, logs outcome in `CallLog` | HR |

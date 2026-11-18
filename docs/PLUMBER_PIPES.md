@@ -20,7 +20,7 @@ If step 1 unavailable: write raw timestamp to `Date`; Excel uses `TEXT(Subs[Date
 | 1 | M365 Excel → Get table row | `Summary`, lookup `Metric` = `PendingCount` |
 | 2 | Toolbox → Only continue if | Value > 0 |
 | 3 | M365 Excel → Get table row | `Summary`, `Metric` = `PendingList` |
-| 4 | Email by Postman | To ops lead. Subject "RC attendance NOT submitted (n)". Body: PendingList (no student data) |
+| 4 | Email by Postman | To centre head (D8). Subject "RC attendance NOT submitted (n)". Body: PendingList (no student data) |
 
 ## Pipe 3 — HR digest (3:05pm Mon–Fri)
 | Step | App / action | Config |

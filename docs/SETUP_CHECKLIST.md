@@ -2,7 +2,7 @@
 
 ## Approvals / people
 - [ ] DPO / ICT sign-off on data flow + classification (DATA_PROTECTION #10)
-- [ ] Name owners: Ops (roster), HR (CallLog), backup admin
+- [ ] Name owners: Ops (roster), HR (CallLog), backup admin, centre head backup (2:55 email CC)
 - [ ] Confirm retention period
 
 ## Build (order)

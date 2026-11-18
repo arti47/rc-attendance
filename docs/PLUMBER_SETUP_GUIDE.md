@@ -50,7 +50,7 @@ Before you start: the Excel workbook is built (EXCEL_WORKBOOK.md) and the FormSG
 4. **Add step → Toolbox → Only continue if** → `Value` (from step 3) **greater than** `0`.
 5. **Add step → M365 Excel → Get table row** → `Summary`, `Metric` = `PendingList`.
 6. **Add step → Email by Postman → Send email**.
-   - To: **(recipient: still to decide)**
+   - To: **Centre head** (D8). Add a backup person in CC for leave cover
    - Subject: `RC attendance NOT submitted: <PendingCount> group(s)`
    - Body: `Not yet submitted:` then a new line, then `<PendingList value>`. Add the workbook link.
 7. Test. Temporarily set a Schedule row's Day to today with no submission → the email should arrive.
