@@ -80,6 +80,12 @@ Paste each into the FIRST data row of the column; Excel tables auto-fill the who
 =COUNTIF(Roster[Status],"ARRIVED LATE")
 ```
 
+## Summary → Value (UnresolvedCount)
+
+```
+=SUMPRODUCT((Roster[Status]="MISSING")*NOT(ISNUMBER(MATCH(Roster[HROutcome],{"Located - at home school","Located - at home","Absent - valid reason (MC/leave)"},0))))
+```
+
 ## Summary → Value (MissingList)
 
 ```

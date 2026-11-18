@@ -12,6 +12,7 @@ from pathlib import Path
 
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
+from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -47,8 +48,18 @@ FORMULAS = [
     ("Summary", "Value (PendingList)", '=IF(COUNTIF(Schedule[Submitted],"PENDING")=0,"None",TEXTJOIN(CHAR(10),TRUE,FILTER(Schedule[CentreClass]&" | "&Schedule[Subject],Schedule[Submitted]="PENDING")))'),
     ("Summary", "Value (MissingCount)", '=COUNTIF(Roster[Status],"MISSING")'),
     ("Summary", "Value (ArrivedLateCount)", '=COUNTIF(Roster[Status],"ARRIVED LATE")'),
+    ("Summary", "Value (UnresolvedCount)", '=SUMPRODUCT((Roster[Status]="MISSING")*NOT(ISNUMBER(MATCH(Roster[HROutcome],{"Located - at home school","Located - at home","Absent - valid reason (MC/leave)"},0))))'),
     ("Summary", "Value (MissingList)", '=IF(COUNTIF(Roster[Status],"MISSING")=0,"None",TEXTJOIN(CHAR(10),TRUE,FILTER(Roster[StudentName]&" | "&Roster[HomeSchool]&" | TDC "&Roster[TDCName]&" "&Roster[TDCPhone]&" | "&Roster[CentreClass]&" "&Roster[Subject],Roster[Status]="MISSING")))'),
     ("HR View", "A2 (spill)", '=IFERROR(SORT(FILTER(HSTACK(Roster[Status],Roster[FlaggedAt],Roster[StudentName],Roster[HomeSchool],Roster[TDCName],Roster[TDCPhone],Roster[CentreClass],Roster[Subject],Roster[LateReason],Roster[HROutcome],Roster[Key]),Roster[Status]<>""),{1,2},{-1,1}),"No absentees reported yet")'),
+]
+
+# CallLog.Outcome dropdown (D12). Also used by Summary UnresolvedCount — keep in sync.
+OUTCOMES = [
+    "Located - at home school",
+    "Located - at home",
+    "Absent - valid reason (MC/leave)",
+    "No answer - retry",
+    "Not located - escalated",
 ]
 
 TABLES = {
@@ -110,9 +121,13 @@ def main():
     sched_rows = [{"Day": s["Day"], "CentreClass": f'{s["Day"][:3]} | {s["Centre"]} | C{s["Class"]}', "Subject": sub}
                   for s in schedule for sub in "EMS"]
     add_table(wb, "Schedule", TABLES["Schedule"], sched_rows)
-    add_table(wb, "CallLog", TABLES["CallLog"], [])
+    cl = add_table(wb, "CallLog", TABLES["CallLog"], [])
+    dv = DataValidation(type="list", formula1='"' + ",".join(OUTCOMES) + '"', allow_blank=True,
+                        showErrorMessage=True, errorTitle="Outcome", error="Pick from the list")
+    cl.add_data_validation(dv)
+    dv.add("C2:C5000")
     add_table(wb, "Summary", TABLES["Summary"],
-              [{"Metric": m} for m in ["PendingCount", "PendingList", "MissingCount", "ArrivedLateCount", "MissingList"]])
+              [{"Metric": m} for m in ["PendingCount", "PendingList", "MissingCount", "ArrivedLateCount", "UnresolvedCount", "MissingList"]])
 
     fs = wb.create_sheet("Formulas")
     fs.append(["Sheet/Table", "Column / Cell", "Formula (paste into first data cell; table auto-fills column)"])

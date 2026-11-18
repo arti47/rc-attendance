@@ -42,3 +42,6 @@ Open:
 
 2026-11-18 (Q15):
 - D11 Classes run Mon–Thu only. Pipe 3 scheduler = Mon–Thu 15:05.
+
+2026-11-18 (Q16):
+- D12 HR call outcomes (CallLog dropdown): Located - at home school; Located - at home; Absent - valid reason (MC/leave); No answer - retry; Not located - escalated. Summary.UnresolvedCount tracks the rest.

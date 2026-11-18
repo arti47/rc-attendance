@@ -10,8 +10,8 @@ If Plumber requires its own file, recreate the same tables/headers in it and pas
 | `Roster` | Ops (manual) | Master list. Input cols: StudentName, HomeSchool, SchoolCode, Day, Centre, Class, Subject, TDCName, TDCPhone. Formula cols: Key, CentreClass, AbsentToday, LateToday, Status, FlaggedAt, LateReason, HROutcome |
 | `Subs` | Plumber only | 1 row per FormSG submission. Format `SubmittedAt`, `Date` columns as Text |
 | `Schedule` | Ops | Day, CentreClass, Subject (paste from toolkit) + formula `Submitted` |
-| `CallLog` | HR | Date, StudentKey (copy from HR View last col), Outcome, CalledBy, Notes |
-| `Summary` | Formulas | Metric/Value rows; Pipe 3 reads `MissingCount`. PendingCount/PendingList = on-sheet view of groups not yet reported |
+| `CallLog` | HR | Date, StudentKey (copy from HR View last col), Outcome (dropdown), CalledBy, Notes. Outcomes: Located - at home school / Located - at home / Absent - valid reason (MC/leave) / No answer - retry / Not located - escalated. Latest entry per student per day wins |
+| `Summary` | Formulas | Metric/Value rows; Pipe 3 reads `MissingCount`. `UnresolvedCount` = MISSING not yet Located/valid-absent (HR's live to-do count). PendingCount/PendingList = on-sheet view of groups not yet reported |
 | HR View sheet | Formula | Spill at A2: today's flagged students, MISSING first, read-only |
 
 ## Status logic
