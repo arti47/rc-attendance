@@ -54,7 +54,7 @@ Build order: **A → B → test → C → test → D → E**.
 
 ## Part D: Pipe 3, "RC HR digest" (3:05pm)
 1. **Create pipe** → `RC HR digest`.
-2. **Trigger → Scheduler** → weekly, on class days only, at **15:05**.
+2. **Trigger → Scheduler** → weekly, **Mon, Tue, Wed, Thu** at **15:05**.
 3. **M365 Excel → Get table row** → `Summary`, lookup column `Metric`, value `MissingCount`.
 4. **Email by Postman** → To: HR group email. Subject `RC: <MissingCount> missing students`. Body: `Open HR View: <workbook link>`. **No names or phone numbers.**
 5. Test, then publish. Delete all test rows from `Subs` and `Roster`.

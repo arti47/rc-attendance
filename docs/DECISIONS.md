@@ -1,7 +1,7 @@
 # Decisions log (append-only; newest at bottom)
 
 Requirements gathered 2026-11-18:
-- Daily E/M/S classes at regional centres; schedule in `data/schedule.csv` (Mon–Thu shown; add Fri if any).
+- Daily E/M/S classes at regional centres; schedule in `data/schedule.csv` (Mon–Thu only, confirmed).
 - Constraints: MOE data rules; data stays on gov cloud. Stack: FormSG → Plumber → M365 Excel (gov cloud). Netlify later for code only.
 - Teachers have ~1 min. They tick **absentees only** from a dropdown/checkbox (no free text, no school selection).
 - 2:50pm absent submission; 3:00pm latecomer submission which checks students off the absent list; late form needs free-text reason (internal log, TDC feedback).
@@ -23,7 +23,7 @@ Open:
 - ~~O1~~ → D6.
 - ~~O2~~ → D7.
 - ~~O3~~ → D9 (keep 2:50).
-- O4 Friday schedule?
+- ~~O4~~ → D11.
 - O5 Verify Plumber features marked [verify] in PLUMBER_PIPES.md.
 
 2026-11-18 (Q11):
@@ -39,3 +39,6 @@ Open:
 - D9 No 2:55 chaser email (supersedes D8). Each centre has a "+1" (GEB officer or centre head) who walks around at 3pm.
 - D10 Two submissions: 2:50 Absent by subject teachers (form "RC Absent"); 3:00 Late by the +1 (form "RC Late", one per centre, all students of that centre, free-text reason).
 - Late matching in Excel = date + key (centre-wide), not scoped by class/subject.
+
+2026-11-18 (Q15):
+- D11 Classes run Mon–Thu only. Pipe 3 scheduler = Mon–Thu 15:05.

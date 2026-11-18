@@ -14,10 +14,10 @@ Click-by-click: PLUMBER_SETUP_GUIDE.md. **[verify]** = confirm in the Plumber UI
 Duplicate Pipe 1, change the trigger to form "RC Late", then remap:
 `Type` = **`Late`**; `CentreClass` = Centre (e.g. `Mon | Geylang Methodist School`); `Subject` = blank; `Students` = all late checkbox variables back-to-back; `Reason` = Reason for lateness; the rest as Pipe 1.
 
-## Pipe 3: HR digest (3:05pm Mon–Fri)
+## Pipe 3: HR digest (3:05pm Mon–Thu)
 | Step | Action | Config |
 |------|--------|--------|
-| Trigger | Scheduler → weekdays 15:05 **[verify]** | |
+| Trigger | Scheduler → Mon–Thu 15:05 **[verify]** | |
 | 1 | M365 Excel → Get table row | `Summary`, `Metric` = `MissingCount` |
 | 2 | Email by Postman | To HR. Subject "RC: n missing students". Body: count + workbook link only (D7) |
 
