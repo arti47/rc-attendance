@@ -27,8 +27,7 @@ If step 1 unavailable: write raw timestamp to `Date`; Excel uses `TEXT(Subs[Date
 |------|--------------|--------|
 | Trigger | Scheduler → weekdays 15:05 | |
 | 1 | M365 Excel → Get table row | `Summary`, `MissingCount` |
-| 2 | M365 Excel → Get table row | `Summary`, `MissingList` (only if approved to email PII) |
-| 3 | Email by Postman | To HR. Count + workbook link (+ list if approved) |
+| 2 | Email by Postman | To HR. Subject "RC: n missing students". Body: count + workbook link only (D7: no names/phones in email) |
 
 ## Notes
 - **[verify]** Excel recalculates formulas when Plumber reads via Graph. Test: submit a test response, wait 1 min, check Pipe 2/3 output matches the sheet.

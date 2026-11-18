@@ -28,11 +28,10 @@
 | ~2:50:30 | Row in `Subs`; HR View shows MISSING + school + TDC + phone | Plumber + Excel (auto) |
 | 2:55 | Email: list of centre/class/subject not yet submitted | Plumber scheduler → ops lead chases |
 | 3:00 | Late submission + reason; status flips to ARRIVED LATE | Teacher |
-| 3:05 | HR digest email: missing count (+ list, if approved) + link | Plumber scheduler |
+| 3:05 | HR digest email: missing count + link | Plumber scheduler |
 | 3:05–3:10 | HR calls TDCs, logs outcome in `CallLog` | HR |
 
 Net: data ready ~2:51 instead of "by 3:10"; zero manual lookup.
 
 ## Open recommendations (need your decision)
 - Shift absent cut-off to **2:45** to give the chaser 10 min before HR starts.
-- Decide whether digest email may contain names/phones or count + link only (DATA_PROTECTION #4).

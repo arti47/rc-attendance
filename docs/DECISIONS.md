@@ -21,10 +21,13 @@ Design decisions:
 
 Open:
 - ~~O1~~ → D6.
-- O2 PII in HR digest email?
+- ~~O2~~ → D7.
 - O3 Move absent cut-off to 2:45?
 - O4 Friday schedule?
 - O5 Verify Plumber features marked [verify] in PLUMBER_PIPES.md.
 
 2026-11-18 (Q11):
 - D6 Form access = open link + Email field with OTP verification, restricted to MOE domains. Relief teachers must be able to submit without pre-registration. Singpass and whitelist rejected. `Subs.SubmittedBy` = verified email (audit trail).
+
+2026-11-18 (Q12):
+- D7 HR 3:05pm email = missing count + workbook link only. No student names/phones in any email.
