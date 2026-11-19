@@ -131,8 +131,13 @@ def main():
 
     fs = wb.create_sheet("Formulas")
     fs.append(["Sheet/Table", "Column / Cell", "Formula (paste into first data cell; table auto-fills column)"])
-    for row in FORMULAS:
-        fs.append(list(row))
+    for i, (sheet, col, f) in enumerate(FORMULAS, start=2):
+        fs.cell(row=i, column=1, value=sheet)
+        fs.cell(row=i, column=2, value=col)
+        c = fs.cell(row=i, column=3)
+        c.value = f
+        c.data_type = "s"     # store as TEXT, not a live formula (else Excel shows #REF!)
+        c.quotePrefix = True  # Excel shows it as typed text; copying gives the plain formula
     fs.column_dimensions["A"].width = 12
     fs.column_dimensions["B"].width = 26
     fs.column_dimensions["C"].width = 160
