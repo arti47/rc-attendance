@@ -58,4 +58,8 @@ Open:
 
 2026-11-19 (app question):
 - Goal stated: eventually teachers use an "app". Options ranked: (1) FormSG link saved to phone home screen = app icon, no approval; (2) Power Apps on MOE M365 using the same Excel workbook as backend, data stays in tenant, needs Power Apps enabled; (3) custom Netlify app calling M365 via Microsoft Graph from the browser, needs MOE ICT app registration + DPO approval. Netlify must never store/proxy data.
-- O6 Is Power Apps available on the MOE M365 account? (check make.powerapps.com)
+- ~~O6~~ → D14.
+
+2026-11-19 (Q: Power Apps):
+- Power Apps opens (make.powerapps.com) but is not in the app launcher. Workbook lives on SharePoint site `ssp-Plumber` (Plumber-managed); users have file access only, not site access → Power Apps cannot connect to it.
+- D14 Phase 1 = FormSG + Plumber + Excel, with the FormSG link saved as a home-screen icon on teachers' phones. Phase 2 (optional) = Power Apps on a separately owned SharePoint site/List with add-only permissions for teachers; needs site owner/ICT + DPO sign-off. Do not give teachers access to the roster workbook.
