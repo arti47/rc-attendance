@@ -29,6 +29,9 @@ If Plumber requires its own file, recreate the same tables/headers in it and pas
 - No daily reset needed: everything filters on TODAY().
 - Monthly: move old `Subs`/`CallLog` rows to an archive sheet to keep it fast; delete per retention policy.
 
+## Install formulas (one click)
+Excel for the web → **Automate** → **New Script** → paste `scripts/office/SetupFormulas.ts` → **Save** → **Run**. Output says `OK` or lists problems. Fallback: paste manually from `docs/excel_formulas.md`.
+
 ## First-build verification (formulas untested in live Excel)
 1. Paste formulas; confirm no `#NAME?` (needs Excel for the web / M365, not Excel 2016).
 2. Add a fake Roster row with today's Day; add a `Subs` row manually with its Key → Status = MISSING, HR View shows it.

@@ -28,7 +28,7 @@ Read in order: `docs/DECISIONS.md` → `docs/WORKFLOW_AUDIT.md` → `docs/FORMSG
 ## Layout
 - `tools/roster-toolkit/` static app (`lib.js` pure logic, `app.js` UI, `index.html`)
 - `tests/*.test.mjs` node tests for lib.js
-- `scripts/build_workbook.py` → `templates/RC_Attendance_Template.xlsx` + `docs/excel_formulas.md` (FORMULAS list is source of truth)
+- `scripts/build_workbook.py` → `templates/RC_Attendance_Template.xlsx` + `docs/excel_formulas.md` + `scripts/office/SetupFormulas.ts` (Office Script that installs all formulas in one Run). FORMULAS list is source of truth
 - `data/schedule.csv` centre/day/class/zone (public school names only)
 
 ## Commands
