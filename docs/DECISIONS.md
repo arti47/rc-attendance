@@ -55,3 +55,7 @@ Open:
 2026-11-19 (Pipe 1 build):
 - Plumber "Create table row" rejects empty values ("expected string, received undefined") → use `-` for unused columns (Absent.Reason, Late.Subject). Formatter "Change the format" ISO → YYYY-MM-DD works; FormSG Submission Time is already +08:00.
 - Pipe 1 tested live: FormSG → Subs row → Roster MISSING.
+
+2026-11-19 (app question):
+- Goal stated: eventually teachers use an "app". Options ranked: (1) FormSG link saved to phone home screen = app icon, no approval; (2) Power Apps on MOE M365 using the same Excel workbook as backend, data stays in tenant, needs Power Apps enabled; (3) custom Netlify app calling M365 via Microsoft Graph from the browser, needs MOE ICT app registration + DPO approval. Netlify must never store/proxy data.
+- O6 Is Power Apps available on the MOE M365 account? (check make.powerapps.com)
