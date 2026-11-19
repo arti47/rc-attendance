@@ -33,7 +33,7 @@ Build order: **A → B → test → C → test → D → E**.
    | CentreClass | "Centre / Class" answer |
    | Subject | "Subject" answer |
    | Students | **all checkbox-field variables back to back, nothing between them** (only one has a value per submission) |
-   | Reason | leave blank |
+   | Reason | type `-` (Plumber rejects empty boxes) |
    | SubmissionID | Response ID |
    | SubmittedBy | "Staff email" answer |
 8. **Test step** → check that a new row appears in `Subs`.
@@ -46,7 +46,7 @@ Build order: **A → B → test → C → test → D → E**.
 3. Delete the Formatter step if it errors and re-add it. Remap step 7:
    - Type → `Late`
    - CentreClass → "Centre" answer
-   - Subject → blank
+   - Subject → type `-`
    - Students → all **late** checkbox variables back to back
    - Reason → "Reason for lateness"
    - SubmittedBy → "Staff email"

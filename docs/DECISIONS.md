@@ -51,3 +51,7 @@ Open:
 
 2026-11-19:
 - Excel workbook live on Plumber-accessible SharePoint. Formulas installed via Office Script (SetupFormulas.ts). Tests A (MISSING) and B (ARRIVED LATE + reason) passed in live Excel.
+
+2026-11-19 (Pipe 1 build):
+- Plumber "Create table row" rejects empty values ("expected string, received undefined") → use `-` for unused columns (Absent.Reason, Late.Subject). Formatter "Change the format" ISO → YYYY-MM-DD works; FormSG Submission Time is already +08:00.
+- Pipe 1 tested live: FormSG → Subs row → Roster MISSING.

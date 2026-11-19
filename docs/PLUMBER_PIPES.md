@@ -8,11 +8,11 @@ Click-by-click: PLUMBER_SETUP_GUIDE.md. **[verify]** = confirm in the Plumber UI
 |------|--------|--------|
 | Trigger | FormSG → New form response | Form "RC Absent" |
 | 1 | Formatter → Date/time → Format **[verify]** | submission time → `yyyy-MM-dd`, Asia/Singapore |
-| 2 | M365 Excel → Create table row → `Subs` | `SubmittedAt` = submission time; `Date` = step 1; `Type` = **`Absent`** (typed constant); `CentreClass` = Centre / Class; `Subject` = Subject; `Students` = all checkbox variables back-to-back; `Reason` = blank; `SubmissionID` = response ID; `SubmittedBy` = Staff email |
+| 2 | M365 Excel → Create table row → `Subs` | `SubmittedAt` = submission time; `Date` = step 1; `Type` = **`Absent`** (typed constant); `CentreClass` = Centre / Class; `Subject` = Subject; `Students` = all checkbox variables back-to-back; `Reason` = `-` (Plumber rejects empty values); `SubmissionID` = response ID; `SubmittedBy` = Staff email |
 
 ## Pipe 2: RC Late intake (FormSG "RC Late" → `Subs`)
 Duplicate Pipe 1, change the trigger to form "RC Late", then remap:
-`Type` = **`Late`**; `CentreClass` = Centre (e.g. `Mon | Geylang Methodist School`); `Subject` = blank; `Students` = all late checkbox variables back-to-back; `Reason` = Reason for lateness; the rest as Pipe 1.
+`Type` = **`Late`**; `CentreClass` = Centre (e.g. `Mon | Geylang Methodist School`); `Subject` = `-`; `Students` = all late checkbox variables back-to-back; `Reason` = Reason for lateness; the rest as Pipe 1.
 
 ## Pipe 3: HR digest (3:05pm Mon–Thu)
 | Step | Action | Config |
