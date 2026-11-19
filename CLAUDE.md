@@ -37,4 +37,4 @@ Read in order: `docs/DECISIONS.md` → `docs/WORKFLOW_AUDIT.md` → `docs/FORMSG
 - Local preview: `cp data/schedule.csv tools/roster-toolkit/ && npx serve tools/roster-toolkit` (or `python3 -m http.server -d tools/roster-toolkit`)
 
 ## Status
-Specs + toolkit + template done. Excel formulas not yet verified in live Excel; Plumber [verify] items open. See Open items in `docs/DECISIONS.md`.
+Part 1 (Excel) DONE and verified live 2026-11-19. Next: Part 2 FormSG forms, then Part 3 Plumber pipes. Plumber [verify] items open. See Open items in `docs/DECISIONS.md`.

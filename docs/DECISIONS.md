@@ -48,3 +48,6 @@ Open:
 
 2026-11-18 (Q17):
 - D13 Roster owner = admin/ops; full rebuild once a year (start of year). Ad-hoc fixes (withdrawals, TDC change) by admin/ops: edit Roster → toolkit → update options in both forms.
+
+2026-11-19:
+- Excel workbook live on Plumber-accessible SharePoint. Formulas installed via Office Script (SetupFormulas.ts). Tests A (MISSING) and B (ARRIVED LATE + reason) passed in live Excel.
